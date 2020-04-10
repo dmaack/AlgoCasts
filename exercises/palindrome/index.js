@@ -8,6 +8,17 @@
 //   palindrome("abcdefg") === false
 
 function palindrome(str) {
+    // Alternate Solution
+    // not ideal because every() is comparing each character from the front -> back and the back -> front
+    return str.split('').every((char, i) => {
+        return char === str[str.length - i - 1]
+    })
+
+}
+
+module.exports = palindrome;
+
+
     // My Solution
     // let reversed = str.split('').reverse().join('')
     // if (str === reversed) {
@@ -17,13 +28,3 @@ function palindrome(str) {
     // }
 
     // or return str === reversed
-
-    // Alternate Solutions
-    // not ideal because every() is comparing each character from the front -> back and the back -> front
-    return str.split('').every((char, i) => {
-        return char === str[str.length - i - 1]
-    })
-
-}
-
-module.exports = palindrome;

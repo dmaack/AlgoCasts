@@ -12,6 +12,23 @@
 //   l.insertLast('c')
 //   midpoint(l); // returns { data: 'b' }
 
-function midpoint(list) {}
+function midpoint(list) {
+    let slow = list.getFirst()
+    let fast = list.getFirst()
+
+    while (fast.next && fast.next.next) {
+        slow = slow.next // jump by 1
+        fast = fast.next.next // jump by 2
+    }
+
+    return slow // will be at the midpoint
+}
 
 module.exports = midpoint;
+
+// NOTES
+
+// Linked List strategy:
+    // set up two pointers, slow and fast
+    // for every step of iteration, we are going to advance the slow pointer by 1 element and advance the fast by 2 elements
+        // once fast is at the end, slow will be at the midpoint
